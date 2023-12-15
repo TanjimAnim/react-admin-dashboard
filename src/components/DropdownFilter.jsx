@@ -19,7 +19,7 @@ function DropdownFilter({
     };
     document.addEventListener('click', clickHandler);
     return () => document.removeEventListener('click', clickHandler);
-  });
+  },[]);
 
   // close if the esc key is pressed
   useEffect(() => {
@@ -29,7 +29,7 @@ function DropdownFilter({
     };
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
-  });
+  },[]);
 
   return (
     <div className="relative inline-flex">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BarChart from '../../charts/BarChart01';
 
 // Import utilities
@@ -36,6 +36,17 @@ function DashboardCard04() {
       },
     ],
   };
+  const fetchData = async () =>{
+    try{
+      const data = await fetch(`http://data.fixer.io/api/latest?access_key=1e180095e41b3f8d3d6bfcc1a5884d0a&base=BDT`)
+      console.log(data.json())
+    } catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+    fetchData()
+  },[])
 
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
